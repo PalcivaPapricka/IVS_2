@@ -26,7 +26,7 @@ double multiplication(float num_1, float num_2){
 }
 
 double division(float num_1, float num_2){
-    if (num_2 = 0){
+    if (num_2 == 0.0){
         fprintf(stderr, RED "[ERROR]" RST ": Cannot divide by 0.\n");
         //TODO ukoncit program / math error
         return 0;
