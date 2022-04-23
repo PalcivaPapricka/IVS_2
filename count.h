@@ -8,6 +8,7 @@
 /**
     @file   count.h
     @author Dan Vilimovský
+    @brief  Declarating mathematical functions
 */
 
 #ifndef COUNT_H
