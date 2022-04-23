@@ -58,7 +58,7 @@ int main(){
     else{
         printf(RED "#" RST);
     }
-    if(subtraction(-98.9987, -57847.5784) < 57748.5810 && subtraction(-98.9987, -57847.5784) > 57748.5785){
+    if(subtraction(-98.9987, -57847.5784) < 57748.5785 && subtraction(-98.9987, -57847.5784) > 57748.5775){
         printf(GREEN "#" RST);
         sub++;
     }
