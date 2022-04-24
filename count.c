@@ -40,7 +40,7 @@ double power(float num_1, int exponent){
         //TODO ukoncit program / math error
         return 0;
     }
-    if (exponent = 0){
+    if (exponent == 0){
         return 1;
     }
     double result = num_1;
