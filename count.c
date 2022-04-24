@@ -56,10 +56,13 @@ double root(float num_1, int exponent){
         //TODO ukoncit program / math error
         return 0;
     }
-    double result = num_1;
-    for(int i = 0; i < (exponent - 1); i++){
-        result = sqrt(result);
-    }
+     
+      double exp = exponent;
+    double base_root = 1/exp;
+
+    double result; 
+    result = pow(num_1, base_root);
+    
     return result;
    
     
