@@ -7,7 +7,7 @@
 */
 /**
     @file   count.c
-    @author Dan Vilimovský
+    @author Dan Vilimovský, David Chovanec
     @brief  Definig mathematical functions from header file count.h
 */
 
@@ -56,8 +56,13 @@ double root(float num_1, int exponent){
         //TODO ukoncit program / math error
         return 0;
     }
-    float exp = 1 / exponent;
-    return pow(num_1, exp);
+    double result = num_1;
+    for(int i = 0; i < (exponent - 1); i++){
+        result = sqrt(result);
+    }
+    return result;
+   
+    
 }
 
 //TODO fce povinne ze zadani navic
