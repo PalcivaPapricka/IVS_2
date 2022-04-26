@@ -68,7 +68,9 @@ double root(float num_1, int exponent){
     
 }
 
-//TODO fce povinne ze zadani navic
+double sinus(double num_1){
+    return sin(num_1);
+}
 
 unsigned long factorial(int num){
     if (num < 0){

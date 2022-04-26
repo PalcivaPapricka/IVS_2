@@ -76,8 +76,12 @@ double power(float num_1, int exponent);
 double root(float num_1, int exponent);
 
 /**
- * @todo 1 povinna fce navic, neni v zadani specifikovana ######################################################################################
+ * @brief Calculates sinus from entered number in radians.
+ * 
+ * @param num_1 
+ * @return double 
  */
+double sinus(double num_1);
 
 /**
  * @brief Calculates factorial of entered number.

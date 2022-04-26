@@ -10,29 +10,25 @@
     @author David Chovanec
     @brief  counts determinative deviation
 */
-#include <stdio.h>
+
 #include <stdlib.h>
 #include "count.h"
 
-int main()
-
-{double a;
+int main(){
+double a;
 int count = 0;
-int maxlenght=0;
-double sum =0;
+double sum = 0;
 double average = 0;
  FILE *fp;
 fp = fopen ("file.txt", "w");
    
-   while (scanf("%lf", &a) != EOF)
-    {
+   while (scanf("%lf", &a) != EOF){
         sum =  addition(sum, a);
         fprintf(fp, "%lf \n", a);
-    count++;
+        count++;
     }
 
-   average = division(sum, count);
-  
+   average = division(sum, count); 
 
 fclose(fp);
   
@@ -40,12 +36,11 @@ fclose(fp);
 
   double numberArray[count];
   sum = 0;
-  double sub=0;
+  double sub = 0;
   double pow = 0;
   double res = 0;
 
-    for (int i = 0; i < count; i++)
-    {
+    for (int i = 0; i < count; i++){
         fscanf(fp, "%lf", &numberArray[i]);
         sub = subtraction(average,numberArray[i]);
         pow = power(sub, 2);
@@ -54,16 +49,13 @@ fclose(fp);
     
     res = division(sum, count);
     res = root(res, 2);
-    //printf("%lf \n", res);
+    //printf("%lf \n", res);    
     
-    
-fclose(fp);
-   
+fclose(fp);  
       
 remove("file.txt");
 double x = root(16,3);
-printf ("%lf", x);
-    
+printf ("%lf\n", x);  
   
   return 0;  
 } 
