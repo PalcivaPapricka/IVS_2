@@ -11,7 +11,9 @@
 
 // Make them global
 GtkWidget 	*view;
+GtkWidget 	*view2;
 GtkWidget	*window;
+GtkWidget	*pop;
 GtkWidget	*fixed;
 GtkWidget	*button1;
 GtkWidget	*button2;
@@ -37,10 +39,20 @@ GtkWidget	*button21;
 GtkWidget	*button22;
 GtkWidget	*button23;
 GtkBuilder	*builder; 
+GtkTextMark *mark;
 
 GtkTextBuffer *buffer;
+GtkTextBuffer *buffer2;
 GtkTextIter start, end;
 GtkTextIter iter;
+
+gboolean
+on_widget_deleted(GtkWidget *widget, GdkEvent *event, gpointer data)
+{
+    gtk_widget_hide(pop);
+    return TRUE;
+}
+
 
 int main(int argc, char *argv[]) {
 
@@ -53,8 +65,10 @@ int main(int argc, char *argv[]) {
 	builder = gtk_builder_new_from_file ("Calc.glade");
  
 	window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
+	pop = GTK_WIDGET(gtk_builder_get_object(builder, "pop"));
 
 	g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+	g_signal_connect(G_OBJECT(pop), "delete-event", G_CALLBACK(on_widget_deleted), NULL);
 
 
         gtk_builder_connect_signals(builder, NULL);
@@ -84,11 +98,15 @@ int main(int argc, char *argv[]) {
 	button22 = GTK_WIDGET(gtk_builder_get_object(builder, "button22"));
 	button23 = GTK_WIDGET(gtk_builder_get_object(builder, "button23"));
 	view = GTK_WIDGET(gtk_builder_get_object(builder, "view"));
+	view2 = GTK_WIDGET(gtk_builder_get_object(builder, "view2"));
 
 	 buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(view));
+	 buffer2 = gtk_text_view_get_buffer(GTK_TEXT_VIEW(view2));
 	 gtk_text_buffer_get_end_iter(buffer, &iter);
 
+
 	gtk_widget_show(window);
+	gtk_widget_set_size_request(pop, 500, 700);
 
 	gtk_main();
 	return EXIT_SUCCESS;
@@ -101,7 +119,7 @@ int main(int argc, char *argv[]) {
 	gtk_text_buffer_insert_at_cursor(buffer, ",", -1);}
 
 	void on_button3_clicked (GtkButton *b, gpointer data) {
-	gtk_text_buffer_insert_at_cursor(buffer, "", -1);}
+	gtk_text_buffer_set_text(buffer, "", -1);}
 
 	void on_button4_clicked (GtkButton *b, gpointer data) {
 	gtk_text_buffer_insert_at_cursor(buffer, "", -1);}
@@ -155,10 +173,13 @@ int main(int argc, char *argv[]) {
 	gtk_text_buffer_insert_at_cursor(buffer, "÷", -1);}
 
 	void on_button21_clicked (GtkButton *b, gpointer data) {
-	gtk_text_buffer_insert_at_cursor(buffer, "", -1);}
+	 mark = gtk_text_buffer_get_insert(buffer);
+    gtk_text_buffer_get_iter_at_mark(buffer, &start, mark);
+    gtk_text_buffer_backspace(buffer, &start, True, True);}
 
 	void on_button22_clicked (GtkButton *b, gpointer data) {
-	gtk_text_buffer_insert_at_cursor(buffer, "HELP", -1);}
+	gtk_widget_show(pop);
+	gtk_text_buffer_set_text(buffer2, "Calculator .\n\n cez \n", -1);} 
 
 	void on_button23_clicked (GtkButton *b, gpointer data) {
 	gtk_text_buffer_insert_at_cursor(buffer, "Sin", -1);}
