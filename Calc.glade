@@ -2,23 +2,33 @@
 <!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <object class="GtkWindow">
+  <object class="GtkApplicationWindow" id="pop">
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkTextView" id="view2">
+        <property name="visible">True</property>
+        <property name="can-focus">True</property>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="window">
     <property name="width-request">580</property>
     <property name="height-request">710</property>
     <property name="can-focus">False</property>
     <property name="border-width">10</property>
     <child>
-      <object class="GtkFixed">
+      <object class="GtkFixed" id="fixed">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button9">
             <property name="label" translatable="yes">!</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button9_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">340</property>
@@ -26,13 +36,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button4">
             <property name="label" translatable="yes">=</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button4_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">340</property>
@@ -40,13 +51,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button1">
             <property name="label" translatable="yes">0</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button1_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">10</property>
@@ -54,13 +66,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button2">
             <property name="label" translatable="yes">,</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button2_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">120</property>
@@ -68,13 +81,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button10">
             <property name="label" translatable="yes">-</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button10_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">450</property>
@@ -82,13 +96,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button12">
             <property name="label" translatable="yes">5</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button12_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">120</property>
@@ -96,13 +111,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button8">
             <property name="label" translatable="yes">3</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button8_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">230</property>
@@ -110,13 +126,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button7">
             <property name="label" translatable="yes">2</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button7_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">120</property>
@@ -124,13 +141,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button5">
             <property name="label" translatable="yes">+</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button5_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">450</property>
@@ -138,13 +156,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button3">
             <property name="label" translatable="yes">C</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button3_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">230</property>
@@ -152,13 +171,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button6">
             <property name="label" translatable="yes">1</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button6_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">10</property>
@@ -166,13 +186,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button17">
             <property name="label" translatable="yes">8</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button17_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">120</property>
@@ -180,13 +201,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button18">
             <property name="label" translatable="yes">9</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button18_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">230</property>
@@ -194,13 +216,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button15">
             <property name="label" translatable="yes">x</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button15_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">450</property>
@@ -208,13 +231,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button16">
             <property name="label" translatable="yes">7</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button16_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">10</property>
@@ -222,13 +246,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
-            <property name="label" translatable="yes"> √</property>
+          <object class="GtkButton" id="button19">
+            <property name="label" translatable="yes">n √</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button19_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">340</property>
@@ -236,13 +261,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button20">
             <property name="label" translatable="yes">÷</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button20_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">450</property>
@@ -250,13 +276,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button13">
             <property name="label" translatable="yes">6</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button13_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">230</property>
@@ -264,13 +291,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
-            <property name="label" translatable="yes">^2</property>
+          <object class="GtkButton" id="button14">
+            <property name="label" translatable="yes">^n</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button14_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">340</property>
@@ -278,13 +306,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button11">
             <property name="label" translatable="yes">4</property>
             <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button11_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">10</property>
@@ -292,29 +321,63 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
-            <property name="label" translatable="yes">| HELP |</property>
-            <property name="width-request">534</property>
+          <object class="GtkButton" id="button23">
+            <property name="label" translatable="yes">Sin</property>
+            <property name="width-request">100</property>
             <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button23_clicked" swapped="no"/>
           </object>
           <packing>
-            <property name="x">16</property>
-            <property name="y">210</property>
+            <property name="x">450</property>
+            <property name="y">200</property>
           </packing>
         </child>
         <child>
-          <object class="GtkEntry">
-            <property name="width-request">539</property>
-            <property name="height-request">109</property>
+          <object class="GtkButton" id="button21">
+            <property name="label" translatable="yes">Del</property>
+            <property name="width-request">100</property>
+            <property name="height-request">80</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button21_clicked" swapped="no"/>
           </object>
           <packing>
-            <property name="x">14</property>
-            <property name="y">100</property>
+            <property name="x">10</property>
+            <property name="y">200</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button22">
+            <property name="label" translatable="yes">|HELP|</property>
+            <property name="width-request">320</property>
+            <property name="height-request">80</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_button22_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">120</property>
+            <property name="y">200</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkTextView" id="view">
+            <property name="name">buffer</property>
+            <property name="width-request">539</property>
+            <property name="height-request">122</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="pixels-above-lines">50</property>
+            <property name="justification">center</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">53</property>
           </packing>
         </child>
       </object>
