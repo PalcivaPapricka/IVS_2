@@ -1,0 +1,4 @@
+xkrama07 160 (GUI, main fce, instalátor, dokumentace, mockup, vedení týmu)
+xvilim06 120 (matematická knihovna, Makefile, testy mat. knihovny, dokumentace, mockup)
+xchova25 120 (revize matematické knihovny, testy mat. knihovny, profiling, mockup)
+xmalas04 0 (-)
