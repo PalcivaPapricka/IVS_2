@@ -8,7 +8,7 @@
 /**
     @file   count.c
     @author Dan Vilimovský, David Chovanec
-    @brief  Definig mathematical functions from header file count.h
+    @brief  Defining mathematical functions from header file count.h
 */
 
 #include "count.h"
