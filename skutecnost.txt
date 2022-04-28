@@ -1,0 +1,20 @@
+Během vývoje jsme se několikrát odchýlili od plánu práce na kalkulačce, ovšem ne ve všech případech to znamenalo odchýlení k horšímu.
+Zde je pár bodů, ve kterých vývoj nešel podle plánu:
+
+1)	Bohužel, jak bylo zmíněno již v odevzdaném časovém plánu, pracovali jsme na vývoji kalkulačky pouze tři. Tím samozřejmě
+	nechceme nijak 4. člena týmu dehonestovat a přejeme hlavně klid jeho rodině při stále trvajícím konfliktu v jeho rodné zemi.
+
+2)	Nedodržovali jsme striktně rozvržení času práce na projektu podle odevzdaného plánu, spíše nám tato osnova udávala pořadí,
+	ve kterém jsme jednotlivé podúkoly řešili. Vždy jsme si ale po poradě stanovili nová data, do kterých má každý člen týmu
+	svůj menší úkol vypracovat, a ta již dodržována byla.
+
+3)	Práce v týmu nám přinesla jisté zkušenosti s rozdělením menších úkolů, a to konkrétněji, že jisté moduly je lepší nerozdělovat.
+	Měli jsme například v plánu si napojení GUI na matematickou knihovnu rozdělit, ovšem časově bylo mnohem výhodnější, aby člen týmu
+	pracující na GUI, který věděl, jak se v kódu orientovat, zároveň vytvořil zdrojový soubor spojující GUI s matematickou knihovnou.
+	Do příštích projektů tedy víme, že je třeba lépe promyslet, kdo bude na které části projektu pracovat.
+
+4)	S tím souvisí i tento bod. Během plánování jsme si každý vybral nějakou část, na které bude pracovat, ovšem v praxi pak bylo
+	zjištěno, že každý umí něco jiného a bude jednodušší si tuto práci přerozdělit.
+
+5)	Původně jsme plánovali implementovat kalkulačku schopnou počítat výrazy se závorkami. Z časových důvodů je ale v současné verzi
+	pouze možnost vypočítat jednu část výpočtu a výsledek požít pro další výpočet. 
