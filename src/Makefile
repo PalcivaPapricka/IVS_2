@@ -16,7 +16,7 @@ stddev: stddev.o count.o
 	$(CC) stddev.o count.o -o stddev $(LDLIBS)
 
 pack: clean
-	zip -r zipfile.zip *
+	cd .. && zip -r zipfile.zip *
 
 test:
 	./test
@@ -32,7 +32,7 @@ profile:
 	./stddev
 
 clean: clean_doc
-	rm *.o test main stddev
+	rm -f *.o test main stddev
 
 clean_doc:
-	rm -r latex
+	rm -f -r latex
