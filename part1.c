@@ -1,4 +1,18 @@
 
+/*
+    @task       Solution of an IVS team project - creating calculator
+    @team       "ludia bez týmu sem >>>"
+    @members    Kramár Viktor, Chovanec David, Vilimovský Dan
+    @created    26.4.2022
+*/
+/**
+    @file   part1.c
+    @author Viktor Kramár
+    @brief  Combine mathematic library with .glade GUI 
+*/
+
+
+
 #include <stdlib.h>
 #include <sys/types.h>
 #include <signal.h>
@@ -11,7 +25,7 @@
 #include "count.h"
 #include "count.c"
 
-// Make them global
+// Make values global
 GtkWidget 		*view;
 GtkWidget 		*view2;
 GtkWidget		*window;
@@ -49,22 +63,23 @@ GtkTextIter 	start, end;
 GtkTextIter 	iter;
 
 
+// Help Popup window Opening and Closing 
 gboolean on_widget_deleted(GtkWidget *widget, GdkEvent *event, gpointer data)
 {
 	gtk_widget_hide(pop);
     return TRUE;
 }
 
-
+//Decide which function to call 
 void find_operation(char* str_1)
 {
 	char * num1 ="0";
 	char * num2 ="0";
 	char * num3 ="0";
 
-	num1 = strtok(str_1, " ");
-	num2 = strtok(NULL, " ");
-	num3 = strtok(NULL, " ");
+	num1 = strtok(str_1, " "); //find 1st number
+	num2 = strtok(NULL, " ");  //find operand
+	num3 = strtok(NULL, " ");  //find 2nd number
 
  	char buf[1000];	
  	float f1=0;
@@ -88,28 +103,28 @@ void find_operation(char* str_1)
 
 	if (num1 && num2 && num3 && *num3 != '\0') {
 
-		if(strstr(num2, "+") != NULL)
+		if(strstr(num2, "+") != NULL) // if operand is + add the two numbers
 		{
     		float number=addition(f1,f2);
   			const gint len = g_snprintf(buf, sizeof buf, "%f", number);
 			gtk_text_buffer_set_text(buffer, buf, len);
 		}
 
-		if(strstr(num2, "-") != NULL)
+		if(strstr(num2, "-") != NULL) // if operand is - subtract the two numbers
 		{
 			float number=subtraction(f1,f2);
 			const gint len = g_snprintf(buf, sizeof buf, "%f", number);
 			gtk_text_buffer_set_text(buffer, buf, len);
 		}
 
-		if(strstr(num2, "*") != NULL)
+		if(strstr(num2, "*") != NULL) // if operand is * multiply the two numbers
 		{
 			float number=multiplication(f1,f2);
 			const gint len = g_snprintf(buf, sizeof buf, "%f", number);
 			gtk_text_buffer_set_text(buffer, buf, len);
 		}
 
-		if(strstr(num2, "/") != NULL)
+		if(strstr(num2, "/") != NULL) // if operand is / divide the two numbers
 		{
 			if( f2 == 0)
 			{
@@ -124,7 +139,7 @@ void find_operation(char* str_1)
 			}
 		}
 
-		if(strstr(num2, "^") != NULL)
+		if(strstr(num2, "^") != NULL) // if operand is ^ power the two numbers
 		{
 			special=f2;
 			if( special < 0)
@@ -139,7 +154,7 @@ void find_operation(char* str_1)
 			}
 		}
 
-		if(strstr(num2, "√") != NULL)
+		if(strstr(num2, "√") != NULL) // if operand is √ root the two numbers
 		{
 			special=f2;
 			if( f2 < 0 || f1 < 0)
@@ -155,10 +170,10 @@ void find_operation(char* str_1)
 		}
 	}
 
-	if (num1 && num2 && *num2 != '\0') 
+	if (num1 && num2 && *num2 != '\0')  // if only operand and one number is read
 	{
 
-		if(strstr(num2, "!") != NULL)
+		if(strstr(num2, "!") != NULL) // if operand is ! use factorial on the number
 		{
 			if(f1 < 0)
 			{
@@ -172,7 +187,7 @@ void find_operation(char* str_1)
 			}
 		}
 
- 		if(strstr(num1, "Sin") != NULL)
+ 		if(strstr(num1, "Sin") != NULL) // if operand is Sin use Sin function on the number
 		{
 			float number=our_sinus(f2);
 			const gint len = g_snprintf(buf, sizeof buf, "%f", number);
@@ -206,7 +221,7 @@ int main(int argc, char *argv[]) {
 	g_signal_connect(G_OBJECT(pop), "delete-event", G_CALLBACK(on_widget_deleted), NULL);
 
 
-        gtk_builder_connect_signals(builder, NULL);
+        gtk_builder_connect_signals(builder, NULL); //builder build the GUI from .glade file
 
 	fixed = GTK_WIDGET(gtk_builder_get_object(builder, "fixed"));
 	button1 = GTK_WIDGET(gtk_builder_get_object(builder, "button1"));
@@ -239,7 +254,7 @@ int main(int argc, char *argv[]) {
 	 buffer2 = gtk_text_view_get_buffer(GTK_TEXT_VIEW(view2));
 	 gtk_text_buffer_get_end_iter(buffer, &iter);
 	
-	
+	//initialize window
 	gtk_widget_show(window);
 	gtk_widget_set_size_request(pop, 800, 700);
 
@@ -249,24 +264,24 @@ int main(int argc, char *argv[]) {
 	
 
 
+	//Decide what to do when certain button is clicked
 
-
-	void on_button1_clicked (GtkButton *b, gpointer data) 
+	void on_button1_clicked (GtkButton *b, gpointer data) // number 0 button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, "0", -1);
 	}
 
-	void on_button2_clicked (GtkButton *b, gpointer data) 
+	void on_button2_clicked (GtkButton *b, gpointer data) // , button  
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, ".", -1);
 	}
 
-	void on_button3_clicked (GtkButton *b, gpointer data) 
+	void on_button3_clicked (GtkButton *b, gpointer data) // Clear button
 	{
 		gtk_text_buffer_set_text(buffer,"", -1);
 	}
 
-	void on_button4_clicked (GtkButton *b, gpointer data) 
+	void on_button4_clicked (GtkButton *b, gpointer data) // = button
 	{
 		GtkTextIter start, end;
 		gchar *text;
@@ -276,7 +291,7 @@ int main(int argc, char *argv[]) {
 	}
 
 
-	void on_button5_clicked (GtkButton *b, gpointer data) 
+	void on_button5_clicked (GtkButton *b, gpointer data) // plus button
 	{
 		GtkTextIter start, end;
 		gchar *text;
@@ -286,27 +301,27 @@ int main(int argc, char *argv[]) {
 		gtk_text_buffer_insert_at_cursor(buffer, " + ", -1);
 	}
 
-	void on_button6_clicked (GtkButton *b, gpointer data) 
+	void on_button6_clicked (GtkButton *b, gpointer data) // number 1 button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, "1", -1);
 	}
 
-	void on_button7_clicked (GtkButton *b, gpointer data) 
+	void on_button7_clicked (GtkButton *b, gpointer data) // number 2 button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, "2", -1);
 	}
 
-	void on_button8_clicked (GtkButton *b, gpointer data) 
+	void on_button8_clicked (GtkButton *b, gpointer data) // number 3 button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, "3", -1);
 	}
 
-	void on_button9_clicked (GtkButton *b, gpointer data) 
+	void on_button9_clicked (GtkButton *b, gpointer data) // factorial button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, " ! " ,-1);
 	}
 
-	void on_button10_clicked (GtkButton *b, gpointer data) 
+	void on_button10_clicked (GtkButton *b, gpointer data) // minus button
 	{
 		GtkTextIter start, end;
 		gchar *text;
@@ -316,22 +331,22 @@ int main(int argc, char *argv[]) {
 		gtk_text_buffer_insert_at_cursor(buffer, " - ", -1);
 	}
 
-	void on_button11_clicked (GtkButton *b, gpointer data) 
+	void on_button11_clicked (GtkButton *b, gpointer data) // number 4 button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, "4", -1);
 	}
 
-	void on_button12_clicked (GtkButton *b, gpointer data) 
+	void on_button12_clicked (GtkButton *b, gpointer data) // number 5 button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, "5", -1);
 	}
 
-	void on_button13_clicked (GtkButton *b, gpointer data) 
+	void on_button13_clicked (GtkButton *b, gpointer data) // number 6 button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, "6", -1);
 	}
 
-	void on_button14_clicked (GtkButton *b, gpointer data)
+	void on_button14_clicked (GtkButton *b, gpointer data) // power button
 	 {
 		GtkTextIter start, end;
 		gchar *text;
@@ -341,7 +356,7 @@ int main(int argc, char *argv[]) {
 		gtk_text_buffer_insert_at_cursor(buffer, " ^ ", -1);
 	}
 
-	void on_button15_clicked (GtkButton *b, gpointer data) 
+	void on_button15_clicked (GtkButton *b, gpointer data) // multiplication button
 	{
 		GtkTextIter start, end;
 		gchar *text;
@@ -351,22 +366,22 @@ int main(int argc, char *argv[]) {
 		gtk_text_buffer_insert_at_cursor(buffer, " * ", -1);
 	}
 
-	void on_button16_clicked (GtkButton *b, gpointer data)
+	void on_button16_clicked (GtkButton *b, gpointer data) // number 7 button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, "7", -1);
 	}
 
-	void on_button17_clicked (GtkButton *b, gpointer data)
+	void on_button17_clicked (GtkButton *b, gpointer data) // number 8 button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, "8", -1);
 	}
 
-	void on_button18_clicked (GtkButton *b, gpointer data) 
+	void on_button18_clicked (GtkButton *b, gpointer data) // number 9 button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, "9", -1);
 	}
 
-	void on_button19_clicked (GtkButton *b, gpointer data) 
+	void on_button19_clicked (GtkButton *b, gpointer data) // root button
 	{
 		GtkTextIter start, end;
 		gchar *text;
@@ -376,7 +391,7 @@ int main(int argc, char *argv[]) {
 		gtk_text_buffer_insert_at_cursor(buffer, " √ ", -1);
 	}
 
-	void on_button20_clicked (GtkButton *b, gpointer data) 
+	void on_button20_clicked (GtkButton *b, gpointer data) // division button
 	{
 		GtkTextIter start, end;
 		gchar *text;
@@ -386,14 +401,14 @@ int main(int argc, char *argv[]) {
 		gtk_text_buffer_insert_at_cursor(buffer, " / ", -1);
 	}
 
-	void on_button21_clicked (GtkButton *b, gpointer data) 
+	void on_button21_clicked (GtkButton *b, gpointer data) //delete button
 	{
 		mark = gtk_text_buffer_get_insert(buffer);
   	  	gtk_text_buffer_get_iter_at_mark(buffer, &start, mark);
    	 	gtk_text_buffer_backspace(buffer, &start, True, True);
 	}
 
-	void on_button22_clicked (GtkButton *b, gpointer data)
+	void on_button22_clicked (GtkButton *b, gpointer data) //Help button
 	{
 		gtk_widget_show(pop);
 		gtk_text_buffer_set_text(buffer2, "The calculator is controlled with the mouse, with which you can press the corresponding buttons on the screen or click directly into the text field and use your keyboard\n\n", -1);
@@ -413,7 +428,7 @@ int main(int argc, char *argv[]) {
 		gtk_text_buffer_insert_at_cursor(buffer2, "The application is shut down by clicking on the \"X\" character in the upper right corner\n", -1);
 	} 
 
-	void on_button23_clicked (GtkButton *b, gpointer data)
+	void on_button23_clicked (GtkButton *b, gpointer data) //Sin button
 	{
 		gtk_text_buffer_insert_at_cursor(buffer, " Sin ", -1);
 	}
