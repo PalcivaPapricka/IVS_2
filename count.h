@@ -14,7 +14,6 @@
 #ifndef COUNT_H
 #define COUNT_H
 
-#include <math.h>
 #include <stdio.h>
 
 #define RED "\e[0;31m"
@@ -81,7 +80,16 @@ double root(float num_1, int exponent);
  * @param num_1 
  * @return double 
  */
-double sinus(double num_1);
+double our_sinus(double num_1);
+
+
+/**
+ * @brief Factorial for function of sinus.
+ * 
+ * @param num 
+ * @return double 
+ */
+double double_factorial(double num);
 
 /**
  * @brief Calculates factorial of entered number.

@@ -36,7 +36,7 @@ double division(float num_1, float num_2){
 
 double power(float num_1, int exponent){
     if (exponent < 0){
-        fprintf(stderr, RED "[ERROR]" RST ": Exponent must be a positive number or zero.\n");
+        fprintf(stderr, RED "[ERROR]" RST ": Exponent must be a positive integer or zero.\n");
         //TODO ukoncit program / math error
         return 0;
     }
@@ -56,21 +56,52 @@ double root(float num_1, int exponent){
         //TODO ukoncit program / math error
         return 0;
     }
-     
-      double exp = exponent;
-    double base_root = 1/exp;
+    double a = num_1;
+    int n = exponent;
+    double root;
+    double delta, newVal, oldVal = a / n;
+        do {
+            newVal = oldVal;
+            for(int i = 1; i < n -1; ++i){
+                newVal *= oldVal;
+            }
+            newVal = (a / newVal + (n-1)*oldVal) / n;
+            delta = oldVal - newVal;
+            if(delta < 0){
+                delta = -delta;
+            }
+            root = oldVal = newVal;
+        } while (delta > 0.000001);
 
-    double result; 
-    result = pow(num_1, base_root);
-    
+    return (root);
+}
+
+
+double our_sinus(double num_1){
+    double x = num_1;
+    double s = -1;
+    for (int i = 3; i <= 100; i += 2) {
+        x += s * (power(num_1, i) / double_factorial(i));
+        s *= -1;
+    }
+    return x;
+}
+
+double double_factorial(double num){
+    if (num < 0){
+        fprintf(stderr, RED "[ERROR]" RST ": Cannot count factorial from negative number. \n");
+        //TODO ukoncit program / math error
+        return 0; 
+    }
+    double result = num;
+    int counter = num - 1;
+    while(counter > 1){
+        result = result * counter;
+        counter--;
+    }
     return result;
-   
-    
 }
 
-double sinus(double num_1){
-    return sin(num_1);
-}
 
 unsigned long factorial(int num){
     if (num < 0){
