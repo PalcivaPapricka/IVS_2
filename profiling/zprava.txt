@@ -1,1 +1,2 @@
-Profiling
+Vrámci profilingu program trávi najviac času vo funkcii root.
+Pre optimalizaciu kódu sme sa zamerali na zrychlenie a zjednodusenie tejto funkcie.
