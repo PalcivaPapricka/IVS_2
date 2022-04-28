@@ -70,15 +70,66 @@ int main(){
 
     //testing multiplication
 
+    int mul = 0;
+
+    if(multiplication(3.5, -7.4) < -25.89 && multiplication(3.5, -7.4) > -25.91){
+        printf(GREEN "#" RST);
+        mul++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+    if(multiplication(-1.48, 35) < -51.7 && multiplication(-1.48, 35) > -51.9){
+        printf(GREEN "#" RST);
+        mul++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+    if(multiplication(32.8, 3.48) < 114.145 && multiplication(32.8, 3.48) > 114.143){
+        printf(GREEN "#" RST);
+        mul++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+
+    printf("\nTesty funkce na násobení: %d/3\n", mul);
 
     //testing division
+
+    int div = 0;
+
+    if(division(-735.4, -5) < 148 && division(-735.4, -5) > 146){
+        printf(GREEN "#" RST);
+        div++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+    if(division(-1.48, 35) < -0.042 && division(-1.48, 35) > -0.044){
+        printf(GREEN "#" RST);
+        div++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+    if(division(32.8, 3.7) < 8.870 && division(32.8, 3.7) > 8.864){
+        printf(GREEN "#" RST);
+        div++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+
+    printf("\nTesty funkce na dělení: %d/3\n", div);
 
 
     //testing power
 
     int pow = 0;
 
-        if(power(3.5, 7) < 6433.93 && power(3.5, 7) > 6433.92){
+    if(power(3.5, 7) < 6433.93 && power(3.5, 7) > 6433.92){
         printf(GREEN "#" RST);
         pow++;
     }
@@ -107,19 +158,85 @@ int main(){
 
     int roo = 0;
 
-    //printf("odmocnina 4 1784.5: %lf \n", root(1784.5, 4));
+    if(root(1028.63, 4) < 5.70 && root(1028.63, 4) > 5.60){
+        printf(GREEN "#" RST);
+        roo++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+    if(root(58, 2) < 7.650 && root(58, 2) > 7.580){
+        printf(GREEN "#" RST);
+        roo++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+    if(root(123456789.123, 8) < 10.275 && root(123456789.123, 8) > 10.260){
+        printf(GREEN "#" RST);
+        roo++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+
+    printf("\nTesty funkce na odmocňování: %d/3\n", roo);
+
 
     //testing sinus
 
     int sin = 0;
 
-    //printf("sin z pi: %lf \n", our_sinus(3.1415));
+    if(our_sinus(125.48) < -0.175 && our_sinus(125.48) > -0.188){
+        printf(GREEN "#" RST);
+        sin++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+    if(our_sinus(-1.48) < -0.994 && our_sinus(-1.48) > -1){
+        printf(GREEN "#" RST);
+        sin++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+    if(our_sinus(1989.1989) < -0.539 && our_sinus(1989.1989) > -0.541){
+        printf(GREEN "#" RST);
+        sin++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+
+    printf("\nTesty funkce na sinus: %d/3\n", sin);
 
 
     //testing factorial
 
     int fac = 0;
 
-    //printf("fac 6: %lu \n", factorial(6));
-    //printf("fac 6: %lf \n", double_factorial(6));
+    if(factorial(8) == 40320){
+        printf(GREEN "#" RST);
+        fac++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+    if(factorial(12) == 479001600){
+        printf(GREEN "#" RST);
+        fac++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+    if(factorial(5) == 120){
+        printf(GREEN "#" RST);
+        fac++;
+    }
+    else{
+        printf(RED "#" RST);
+    }
+
+    printf("\nTesty funkce na faktoriál: %d/3\n", fac);
 }

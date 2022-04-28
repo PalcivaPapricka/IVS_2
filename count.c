@@ -78,6 +78,9 @@ double root(float num_1, int exponent){
 
 
 double our_sinus(double num_1){
+    while(num_1 > 6.283185307){
+        num_1 -= 6.283185307;
+    }
     double x = num_1;
     double s = -1;
     for (int i = 3; i <= 100; i += 2) {
